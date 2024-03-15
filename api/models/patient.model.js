@@ -2,19 +2,15 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../database/config');
 const { User } = require('../models/user.model');
 
-const Therapist = sequelize.define('Therapist', {
-    therapist_id: {
+const Patient = sequelize.define('Patient', {
+    patient_id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
     },
-    speciality: {
+    diagnosis_history: {
         type: DataTypes.STRING,
-        allowNull: false,
-    },
-    experience_years: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
     },
     user_id: {
         type: DataTypes.INTEGER,
@@ -25,8 +21,8 @@ const Therapist = sequelize.define('Therapist', {
         }
     },
 }, {
-    tableName: 'therapist',// Explicitly define the table name
+    tableName: 'patient',// Explicitly define the table name
     timestamps: false, // Disable createdAt and updatedAt
 });
 
-module.exports = { Therapist };
+module.exports = { Patient };
