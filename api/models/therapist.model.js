@@ -19,12 +19,12 @@ const Therapist = sequelize.define(
       allowNull: false,
     },
     user_id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: User,
-        key: "user_id",
-      },
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+            model: User,
+            key: User.user_id
+        }
     },
   },
   {

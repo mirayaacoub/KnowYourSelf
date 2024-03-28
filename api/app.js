@@ -18,10 +18,12 @@ app.use(cors({ origin: '*' }));
 // establish database connection
 require('./database/db'); 
 
-// imports routes
+// import routes
 const register = require('./routes/register')
 const auth = require('./routes/auth');
 const therapist = require('./routes/therapist');
+const patient = require('./routes/patient');
+const blogpost = require('./routes/blogpost');
 server = http.createServer(app); 
 
 app.get('/', (req, res) => {
@@ -32,6 +34,8 @@ app.get('/', (req, res) => {
 app.use('/api', register);
 app.use('/api/auth', auth);
 app.use('/api/therapist', therapist);
+app.use('/api/patient', patient);
+app.use('/api/blogpost', blogpost);
 app.use(express.static(buildDirectory));
 
 app.listen(PORT, () => {
