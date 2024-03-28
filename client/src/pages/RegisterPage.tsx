@@ -7,6 +7,9 @@ export function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [diagnosis, setDiagnosis] = useState("");
+  const [experience, setExperience] = useState("");
+  const [speciality, setSpeciality] = useState("");
 
   return (
     <div className="flex h-screen">
@@ -76,17 +79,28 @@ export function RegisterPage() {
             </div>
           </div>
 
-          {isTherapist && (
+          {isTherapist ? (
             <div>
-              <label className="block">Therapist Field 1</label>
+              <label className="block">Specialty</label>
               <input
                 type="text"
                 className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                onChange={(e) => setSpeciality(e.target.value)}
               />
-              <label className="block">Therapist Field 2</label>
+              <label className="block">Years of Experience</label>
               <input
                 type="text"
                 className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                onChange={(e) => setExperience(e.target.value)}
+              />
+            </div>
+          ) : (
+            <div>
+              <label className="block">Diagnosis History</label>
+              <input
+                type="text"
+                className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                onChange={(e) => setDiagnosis(e.target.value)}
               />
             </div>
           )}
@@ -102,25 +116,5 @@ export function RegisterPage() {
         Already have an account? Login.
       </Link>
     </div>
-  );
-}
-
-function TherapistFields() {
-  return (
-    <>
-      <label>Specialty</label>
-      <input type={"text"} />
-      <label>Experience years</label>
-      <input type={"number"} min={0} />
-    </>
-  );
-}
-
-function PatientFields() {
-  return (
-    <>
-      <label>Describe your therapy medical history</label>
-      <textarea />
-    </>
   );
 }
