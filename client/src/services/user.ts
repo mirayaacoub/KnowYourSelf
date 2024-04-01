@@ -19,6 +19,7 @@ export async function createUser(
 }
 
 export async function authenticateUser(email: string, password: string) {
+  // const navigate = useNavigate();
   try {
     const data = {
       user: {
@@ -50,8 +51,10 @@ export async function authenticateUser(email: string, password: string) {
       if (s) console.log(JSON.parse(s));
 
       // navigate to home page
+      // navigate("/");
     }
-    alert("LOGGED IN");
+    return res.status;
+    // alert("LOGGED IN");
   } catch (error) {
     console.error("Unexpected error:", error);
   }

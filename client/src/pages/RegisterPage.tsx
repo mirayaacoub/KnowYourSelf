@@ -110,11 +110,14 @@ export function RegisterPage() {
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
             value="Register"
           />
+          <br />
+          <br />
+
+          <Link to={"/login"} className="block">
+            Already have an account? Login.
+          </Link>
         </form>
       </div>
-      <Link to={"/login"} className="absolute bottom-4 left-4">
-        Already have an account? Login.
-      </Link>
     </div>
   );
 }

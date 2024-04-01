@@ -5,12 +5,16 @@ import {
 } from "react-router-dom";
 import { RegisterPage } from "./pages/RegisterPage.tsx";
 import { LoginPage } from "./pages/LoginPage.tsx";
+import { HomePage } from "./pages/HomePage.tsx";
+import { AboutUs } from "./pages/AboutUs.tsx";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route>
+      <Route path="/" element={<HomePage />}></Route>
       <Route path="/register" element={<RegisterPage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
+      <Route path="/aboutUs" element={<AboutUs />}></Route>
     </Route>,
   ),
 );

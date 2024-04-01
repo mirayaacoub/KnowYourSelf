@@ -1,9 +1,12 @@
 import { useState } from "react";
 import { authenticateUser } from "../services/user";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 //reactquery tanstack
 export function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginResult, setLoginResult] = useState<number | null>(null);
 
   return (
     <div className="flex h-screen">
@@ -15,7 +18,10 @@ export function LoginPage() {
         <form
           onSubmit={async (e) => {
             e.preventDefault();
-            await authenticateUser(email, password);
+            let result = await authenticateUser(email, password);
+            if (result === 200) console.log("correct id");
+            setLoginResult(result || null);
+            // navigate("/");
           }}
           className="w-full max-w-md"
         >
@@ -31,11 +37,23 @@ export function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           ></input>
-          <input
-            type="submit"
-            className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
-            value={"Log in"}
-          />
+          {loginResult === 200 ? (
+            <Link to={"/"}>
+              {" "}
+              {/* Only link to homepage if login result is 200 */}
+              <input
+                type="submit"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+                value={"Log in"}
+              />
+            </Link>
+          ) : (
+            <input
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              value={"Log in"}
+            />
+          )}
         </form>
       </div>
     </div>
