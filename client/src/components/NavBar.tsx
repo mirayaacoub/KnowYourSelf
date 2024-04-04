@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   PaperAirplaneIcon,
   MoonIcon,
   SunIcon,
   Bars3Icon,
+  UserIcon,
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
@@ -19,23 +21,38 @@ function Navbar() {
             <div className="flex items-center gap-16 my-12">
               {/* logo */}
               <div>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   className="flex gap-1 font-bold text-gray-700 items-center "
                 >
                   <PaperAirplaneIcon className="h-6 w-6 text-primary" />
                   <span>Know YourSelf</span>
-                </a>
+                </Link>
               </div>
               {/* primary */}
               <div className="hidden lg:flex gap-8 ">
-                <a href="/" className="">
+                <Link to="/" className="">
                   Home
-                </a>
-                <a href="/aboutUs">About Us</a>
-                <a href="/blogs">Blogs</a>
-                <a href="/findTherapist">Find a Therapist</a>
+                </Link>
+                <Link to="/aboutUs">About Us</Link>
+                <Link to="/blogs">Blogs</Link>
+                <Link to="/findTherapist">Find a Therapist</Link>
               </div>
+              {sessionStorage.getItem("token") ? (
+                <Link
+                  to="/profilePage"
+                  className="flex gap-1 font-bold text-gray-700 items-center "
+                >
+                  <UserIcon className="h-6 w-6 text-primary" />
+                </Link>
+              ) : (
+                <Link
+                  to="/register"
+                  className="flex gap-1 font-bold text-gray-700 items-center "
+                >
+                  <UserIcon className="h-6 w-6 text-primary" />
+                </Link>
+              )}
             </div>
             {/* secondary */}
             <div className="flex gap-6">

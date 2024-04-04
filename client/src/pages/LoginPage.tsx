@@ -27,6 +27,7 @@ export function LoginPage() {
         >
           <label className="block">Email</label>
           <input
+            id="email"
             type="email"
             onChange={(e) => setEmail(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
@@ -39,8 +40,6 @@ export function LoginPage() {
           ></input>
           {loginResult === 200 ? (
             <Link to={"/"}>
-              {" "}
-              {/* Only link to homepage if login result is 200 */}
               <input
                 type="submit"
                 className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"

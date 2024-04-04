@@ -46,6 +46,7 @@ export async function authenticateUser(email: string, password: string) {
       sessionStorage.setItem("token", res.data.token);
       var jsonString = JSON.stringify(res.data.user);
       sessionStorage.setItem("user", jsonString);
+      sessionStorage.setItem("email", JSON.parse(jsonString).email);
       console.log(sessionStorage.getItem("token"));
       let s = sessionStorage.getItem("user");
       if (s) console.log(JSON.parse(s));
