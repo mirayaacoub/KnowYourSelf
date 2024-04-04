@@ -53,6 +53,11 @@ export function LoginPage() {
               value={"Log in"}
             />
           )}
+          <br />
+          <br />
+          <Link to={"/register"} className="block">
+            Don't have an account? Signup
+          </Link>
         </form>
       </div>
     </div>

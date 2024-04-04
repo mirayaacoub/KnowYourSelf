@@ -6,7 +6,6 @@ import {
   SunIcon,
   Bars3Icon,
   UserIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/outline";
 
 function Navbar() {
@@ -47,7 +46,7 @@ function Navbar() {
                 </Link>
               ) : (
                 <Link
-                  to="/register"
+                  to="/login"
                   className="flex gap-1 font-bold text-gray-700 items-center "
                 >
                   <UserIcon className="h-6 w-6 text-primary" />
