@@ -5,23 +5,21 @@ const createTherapistController = async (req, res) => {
     const { therapist } = req.body;
     if (!therapist) {
         console.log(therapist)
-        return res.status(401).json({ message: "missing data" });
+        return res.status(400).json({ message: "missing data" });
     }
     const result = await createTherapist(therapist);
-    // user successfully inserted
+    // therapist successfully inserted
     if (result.status === 201) {
-        return res.status(201).json({ message: "successful", therapist: result.therapist })
+        return res.status(201).json({ message: result.message, therapist: result.therapist })
     }
-    res.status(401).json({ message: result.message });
-    //inappropriate request
-    //res.status(401).json({ message: "Unauthorized" });
+    res.status(500).json({ message: result.message });
 }
 
 const getTherapistController = async (req, res) => {
     const { user_id } = req.body;
     const result = await getTherapist({ user_id: user_id });
     if (!result) {
-        return res.status(401).json({ message: "Missing data" })
+        return res.status(400).json({ message: "Missing data" })
     }
 
     if (result.status === 200) {

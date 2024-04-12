@@ -36,13 +36,6 @@ const User = sequelize.define('User', {
         type: DataTypes.ENUM('therapist', 'patient'),
         allowNull: false
     }
-    // }, {
-    //     hooks: {
-    //         beforeCreate: async (user) => {
-    //             // Hash the password before creating the user
-    //             user.password = await bcrypt.hash(user.password, 10);
-    //         }
-    //     }
 },{
     tableName: 'user',// Explicitly define the table name
     timestamps: false, // Disable createdAt and updatedAt

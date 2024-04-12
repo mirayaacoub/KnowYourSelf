@@ -7,15 +7,28 @@ export async function createUser(
   email: string,
   password: string,
   role: "therapist" | "patient",
+  diagnosis_history: string,
+  experience_years: number,
+  specialty: string
 ) {
-  await Requests.post(`/register`, {
+  const res = await Requests.post(`/register`, {
     user: {
       username,
       email,
       password,
       role,
+      diagnosis_history,
+      experience_years,
+      specialty
     },
   });
+
+  // authentication upon registration
+  if(res.status === 201){
+    return authenticateUser(email, password);
+  }
+  console.log("Unexpercted error: ", res.status, res.statusText);
+  return 
 }
 
 export async function authenticateUser(email: string, password: string) {

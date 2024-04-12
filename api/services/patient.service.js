@@ -5,9 +5,7 @@ const createPatient = async (data) => {
     const { user_id, diagnosis_history } = data;
     try {
         const patient = await Patient.create({ diagnosis_history: diagnosis_history, user_id: user_id });
-        if (patient) {
-            return { status: 200, message: "Patient created successfully" }
-        }
+        return { status: 201, message: "Patient created successfully", patient: patient }
     } catch (error) {
         if (error.name === 'SequelizeUniqueConstraintError') {
             return { status: 409, message: 'Patient already exists' };

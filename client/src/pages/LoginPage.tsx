@@ -7,6 +7,7 @@ export function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loginResult, setLoginResult] = useState<number | null>(null);
+  const navigate = useNavigate();
 
   return (
     <div className="flex h-screen">
@@ -14,17 +15,22 @@ export function LoginPage() {
         className="flex-1 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('bg.png')` }}
       ></div>
+
       <div className="flex-1 flex justify-center items-center">
         <form
           onSubmit={async (e) => {
             e.preventDefault();
             let result = await authenticateUser(email, password);
-            if (result === 200) console.log("correct id");
-            setLoginResult(result || null);
-            // navigate("/");
+            if (result === 200) {
+              console.log("correct id");
+              setLoginResult(result);
+              console.log(loginResult);
+              navigate("/");
+            }
           }}
           className="w-full max-w-md"
         >
+
           <label className="block">Email</label>
           <input
             id="email"
@@ -32,12 +38,14 @@ export function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           ></input>
+
           <label className="block">Password</label>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           ></input>
+          
           {loginResult === 200 ? (
             <Link to={"/"}>
               <input

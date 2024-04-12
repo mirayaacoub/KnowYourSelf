@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { createUser } from "../services/user.ts";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function RegisterPage() {
   const [isTherapist, toggleIsTherapist] = useState(false);
@@ -9,7 +9,8 @@ export function RegisterPage() {
   const [password, setPassword] = useState("");
   const [diagnosis, setDiagnosis] = useState("");
   const [experience, setExperience] = useState("");
-  const [speciality, setSpeciality] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const navigate = useNavigate();
 
   return (
     <div className="flex h-screen">
@@ -22,12 +23,23 @@ export function RegisterPage() {
           className="w-full max-w-md"
           onSubmit={async (event) => {
             event.preventDefault();
-            await createUser(
+            // parse years of experience to int
+            let parsedExperience = parseInt(experience);
+            let result = await createUser(
               username,
               email,
               password,
               isTherapist ? "therapist" : "patient",
+              diagnosis,
+              parsedExperience,
+              specialty
             );
+
+            if (result === 200) {
+              navigate('/');
+
+            }
+      
           }}
         >
           <label className="block">Username</label>
@@ -85,7 +97,7 @@ export function RegisterPage() {
               <input
                 type="text"
                 className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
-                onChange={(e) => setSpeciality(e.target.value)}
+                onChange={(e) => setSpecialty(e.target.value)}
               />
               <label className="block">Years of Experience</label>
               <input

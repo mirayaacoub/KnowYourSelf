@@ -10,13 +10,13 @@ const Therapist = sequelize.define(
       primaryKey: true,
       autoIncrement: true,
     },
-    speciality: {
+    specialty: {
       type: DataTypes.STRING,
-      allowNull: false,
+      // allowNull: false,
     },
     experience_years: {
       type: DataTypes.INTEGER,
-      allowNull: false,
+      // allowNull: false,
     },
     user_id: {
         type: DataTypes.INTEGER,

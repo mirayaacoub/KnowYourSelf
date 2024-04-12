@@ -11,6 +11,7 @@ const BlogPost = sequelize.define('BlogPost', {
     blog_title: {
         type: DataTypes.STRING,
         allowNull: false,
+        unique: true
     },
     content: {
         type: DataTypes.TEXT,
@@ -31,7 +32,8 @@ const BlogPost = sequelize.define('BlogPost', {
     updated_at: {
         type: DataTypes.DATE,
         allowNull: false,
-        defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP'),
+        defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
+        onUpdate: sequelize.literal('CURRENT_TIMESTAMP')
     },
     
 }, {

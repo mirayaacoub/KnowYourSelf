@@ -6,7 +6,7 @@ const createBlogPost = async (data) => {
     try {
         const blogpost = await BlogPost.create({ therapist_id: therapist_id, blog_title: blog_title, content: content });
         if (blogpost) {
-            return { status: 200, message: "Blogpost created successfully" }
+            return { status: 201, message: "Blogpost created successfully" }
         }
     } catch (error) {
         console.log(error)
@@ -18,11 +18,11 @@ const getBlogPostsByTherapist = async (data) => {
     const therapist_id = data;
     try {
         const blogpost = await BlogPost.findAll({ where: { therapist_id: therapist_id } });
-        if (blogpost) {
+        if (blogpost.length > 0) {
             return { status: 200, message: "BlogPosts found", blogpost: blogpost }
         }
         else {
-            return { status: 404, message: "Not found" }
+            return { status: 404, message: "No BlogPost found" }
         }
     } catch (error) {
         console.log(error)
@@ -35,11 +35,11 @@ const getBlogPostByTitle = async (data) => {
     const blog_title = data;
     try {
         const blogpost = await BlogPost.findAll({ where: { blog_title: blog_title } })
-        if (blogpost) {
+        if (blogpost.length > 0) {
             return { status: 200, message: "BlogPost found", blogpost: blogpost }
         }
         else {
-            return { status: 404, message: "Not found" }
+            return { status: 404, message: "No BlogPost found" }
         }
     } catch (error) {
         return { status: 500, message: "Internal server error" }
@@ -52,7 +52,7 @@ const updateBlogPost = async (data) => {
     try {
         const blogpost = await BlogPost.findOne({ where: { blog_id: blog_id } });
         if (blogpost) {
-            await blogpost.update({ blog_title: blog_title, content: content });
+            await blogpost.update({ blog_title: blog_title, content: content, updated_at: new Date() });
             return { status: 200, message: "Blog updated successfully" };
         } else {
             return { status: 404, message: "Blog not found" };
