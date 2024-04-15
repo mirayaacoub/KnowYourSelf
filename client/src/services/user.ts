@@ -2,6 +2,12 @@ import { func } from "prop-types";
 import Requests from "./http-common.ts";
 import { useNavigate } from "react-router-dom";
 
+export async function createTherapist(
+  user_id: number,
+  experience_years: number,
+  specialty: string,
+) {}
+
 export async function createUser(
   username: string,
   email: string,
@@ -9,7 +15,7 @@ export async function createUser(
   role: "therapist" | "patient",
   diagnosis_history: string,
   experience_years: number,
-  specialty: string
+  specialty: string,
 ) {
   const res = await Requests.post(`/register`, {
     user: {
@@ -19,16 +25,16 @@ export async function createUser(
       role,
       diagnosis_history,
       experience_years,
-      specialty
+      specialty,
     },
   });
 
   // authentication upon registration
-  if(res.status === 201){
+  if (res.status === 201) {
     return authenticateUser(email, password);
   }
   console.log("Unexpercted error: ", res.status, res.statusText);
-  return 
+  return;
 }
 
 export async function authenticateUser(email: string, password: string) {

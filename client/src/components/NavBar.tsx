@@ -15,7 +15,7 @@ function Navbar() {
     <div className="app">
       <nav>
         <div className="max-w-7xl mx-auto">
-          <div className="flex mx-auto justify-between w-5/6 ">
+          <div className="flex mx-auto justify-between w-full px-6 ">
             {/* Primary menu and logo */}
             <div className="flex items-center gap-16 my-12">
               {/* logo */}
@@ -62,7 +62,7 @@ function Navbar() {
                 </div>
                 <div>
                   <button className="rounded-full border-solid border-2 border-gray-300 py-2 px-4 hover:bg-gray-700 hover:text-gray-100">
-                    Free Trial
+                    button
                   </button>
                 </div>
               </div>
