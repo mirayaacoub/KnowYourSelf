@@ -5,8 +5,19 @@ import { Sidebar } from "../components/sideBar";
 
 export function ProfilePage() {
   const [username, setUsername] = useState("");
+  let s = sessionStorage.getItem("user");
+  let role;
+  if (s) {
+    let userObj = JSON.parse(s);
+    role = userObj.role;
+    console.log("user email isss " + username);
+  }
+  const [isTherapist, toggleIsTherapist] = useState(role == "therapist");
 
-  const [isTherapist, toggleIsTherapist] = useState(false);
+  // if (role == "therapist") {
+  //   toggleIsTherapist(true);
+  // }
+
   const [email, setEmail] = useState("");
   const [diagnosis, setDiagnosis] = useState("");
   const [experience, setExperience] = useState("");
