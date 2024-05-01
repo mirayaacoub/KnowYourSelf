@@ -2,16 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
-body, html {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    background-color: black;
-    color: white;
+body,
+html {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  background-color: black;
+  color: white;
 }
 
-input, textarea {
-    color: black;
+/* Override browser autofill styles */
+/* input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px black inset !important;
+  color: white !important;
+} */
+
+input,
+textarea {
+  color: black;
 }

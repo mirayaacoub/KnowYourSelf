@@ -2,11 +2,20 @@ import { func } from "prop-types";
 import Requests from "./http-common.ts";
 import { useNavigate } from "react-router-dom";
 
-export async function createTherapist(
+export async function updateTherapist(
   user_id: number,
   experience_years: number,
   specialty: string,
-) {}
+) {
+  await Requests.put("/api/therapist");
+}
+
+export async function updatePatient(
+  user_id: number,
+  diagnosis_history: string,
+) {
+  await Requests.put("/api/patient");
+}
 
 export async function createUser(
   username: string,

@@ -1,163 +1,88 @@
-import {
-  MDBCol,
-  MDBContainer,
-  MDBRow,
-  MDBCard,
-  MDBCardText,
-  MDBCardBody,
-  MDBCardImage,
-  MDBBtn,
-  MDBTypography,
-} from "mdb-react-ui-kit";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Button } from "@material-tailwind/react";
-export function ProfilePage() {
-  let s = sessionStorage.getItem("user");
-  let username;
-  if (s) {
-    let userObj = JSON.parse(s);
-    username = userObj.username;
-    console.log("user email isss " + username);
-  }
+import { Link, useNavigate } from "react-router-dom";
+import { AvatarSizes } from "../components/avatar";
+import { Sidebar } from "../components/sideBar";
 
-  const handleLogout = () => {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("user");
-  };
+export function ProfilePage() {
+  const [username, setUsername] = useState("");
+
+  const [isTherapist, toggleIsTherapist] = useState(false);
+  const [email, setEmail] = useState("");
+  const [diagnosis, setDiagnosis] = useState("");
+  const [experience, setExperience] = useState("");
+  const [specialty, setSpecialty] = useState("");
+  const navigate = useNavigate();
 
   return (
     <>
-      {/* (sessionStorage.getItem("token")) return */}
-      <h1>hello {username}</h1>
-      <div className="gradient-custom-2" style={{ backgroundColor: "#9de2ff" }}>
-        <MDBContainer className="py-5 h-100">
-          <MDBRow className="justify-content-center align-items-center h-100">
-            <MDBCol lg="9" xl="7">
-              <MDBCard>
-                <div
-                  className="rounded-top text-white d-flex flex-row"
-                  style={{ backgroundColor: "#000", height: "200px" }}
-                >
-                  <div
-                    className="ms-4 mt-5 d-flex flex-column"
-                    style={{ width: "150px" }}
-                  >
-                    <MDBCardImage
-                      src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-profiles/avatar-1.webp"
-                      alt="Generic placeholder image"
-                      className="mt-4 mb-2 img-thumbnail"
-                      fluid
-                      style={{ width: "150px", zIndex: "1" }}
-                    />
-                    <MDBBtn
-                      outline
-                      color="dark"
-                      style={{ height: "36px", overflow: "visible" }}
-                    >
-                      Edit profile
-                    </MDBBtn>
-                  </div>
-                  <div className="ms-3" style={{ marginTop: "130px" }}>
-                    <MDBTypography tag="h5">Andy Horwitz</MDBTypography>
-                    <MDBCardText>New York</MDBCardText>
-                  </div>
-                </div>
-                <div
-                  className="p-4 text-black"
-                  style={{ backgroundColor: "#f8f9fa" }}
-                >
-                  <div className="d-flex justify-content-end text-center py-1">
-                    <div>
-                      <MDBCardText className="mb-1 h5">253</MDBCardText>
-                      <MDBCardText className="small text-muted mb-0">
-                        Photos
-                      </MDBCardText>
-                    </div>
-                    <div className="px-3">
-                      <MDBCardText className="mb-1 h5">1026</MDBCardText>
-                      <MDBCardText className="small text-muted mb-0">
-                        Followers
-                      </MDBCardText>
-                    </div>
-                    <div>
-                      <MDBCardText className="mb-1 h5">478</MDBCardText>
-                      <MDBCardText className="small text-muted mb-0">
-                        Following
-                      </MDBCardText>
-                    </div>
-                  </div>
-                </div>
-                <MDBCardBody className="text-black p-4">
-                  <div className="mb-5">
-                    <p className="lead fw-normal mb-1">About</p>
-                    <div className="p-4" style={{ backgroundColor: "#f8f9fa" }}>
-                      <MDBCardText className="font-italic mb-1">
-                        Web Developer
-                      </MDBCardText>
-                      <MDBCardText className="font-italic mb-1">
-                        Lives in New York
-                      </MDBCardText>
-                      <MDBCardText className="font-italic mb-0">
-                        Photographer
-                      </MDBCardText>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-between align-items-center mb-4">
-                    <MDBCardText className="lead fw-normal mb-0">
-                      Recent photos
-                    </MDBCardText>
-                    <MDBCardText className="mb-0">
-                      <a href="#!" className="text-muted">
-                        Show all
-                      </a>
-                    </MDBCardText>
-                  </div>
-                  <MDBRow>
-                    <MDBCol className="mb-2">
-                      <MDBCardImage
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(112).webp"
-                        alt="image 1"
-                        className="w-100 rounded-3"
-                      />
-                    </MDBCol>
-                    <MDBCol className="mb-2">
-                      <MDBCardImage
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(107).webp"
-                        alt="image 1"
-                        className="w-100 rounded-3"
-                      />
-                    </MDBCol>
-                  </MDBRow>
-                  <MDBRow className="g-2">
-                    <MDBCol className="mb-2">
-                      <MDBCardImage
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(108).webp"
-                        alt="image 1"
-                        className="w-100 rounded-3"
-                      />
-                    </MDBCol>
-                    <MDBCol className="mb-2">
-                      <MDBCardImage
-                        src="https://mdbcdn.b-cdn.net/img/Photos/Lightbox/Original/img%20(114).webp"
-                        alt="image 1"
-                        className="w-100 rounded-3"
-                      />
-                    </MDBCol>
-                  </MDBRow>
-                </MDBCardBody>
-              </MDBCard>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </div>
-      <br />
-      <div className="pb-8">
-        <Link to="/">
-          <Button variant="text" onClick={handleLogout}>
-            Logout
-          </Button>
-        </Link>
+      <div className="flex h-screen items-center justify-center mt-8">
+        <Sidebar></Sidebar>
+        <div className="flex-1 flex-col justify-center items-center  mt-[-10rem]">
+          <AvatarSizes></AvatarSizes>
+          <h1 className="my-2">Personal Information</h1>
+          <form
+            className="w-full max-w-md"
+            onSubmit={async (event) => {
+              event.preventDefault();
+            }}
+          >
+            <label className="block mb-2">Username</label>
+            <input
+              required
+              className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+              autoComplete="username"
+              onChange={(e) => setUsername(e.target.value)}
+              type="text"
+              // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+            />
+
+            <label className="block mb-2">Email</label>
+            <input
+              required
+              autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+              className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+              //  className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+            />
+
+            {isTherapist ? (
+              <div>
+                <label className="block mb-2">Specialty</label>
+                <input
+                  type="text"
+                  className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                  onChange={(e) => setSpecialty(e.target.value)}
+                />
+                <label className="block mb-2">Years of Experience</label>
+                <input
+                  type="text"
+                  className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+                  // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                  onChange={(e) => setExperience(e.target.value)}
+                />
+              </div>
+            ) : (
+              <div>
+                <label className="block mb-2">Diagnosis History</label>
+                <input
+                  type="text"
+                  // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                  className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+                  onChange={(e) => setDiagnosis(e.target.value)}
+                />
+              </div>
+            )}
+
+            <input
+              type="submit"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
+              value="Save Changes"
+            />
+            <br />
+            <br />
+          </form>
+        </div>
       </div>
     </>
   );
