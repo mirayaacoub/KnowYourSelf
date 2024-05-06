@@ -33,4 +33,6 @@ const Therapist = sequelize.define(
   }
 );
 
+Therapist.belongsTo(User, { foreignKey: 'user_id', targetKey: 'user_id' });
+
 module.exports = { Therapist };

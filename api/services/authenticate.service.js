@@ -11,7 +11,6 @@ const authenticate = async (data) => {
   try {
     const user = await User.findOne({ where: { email: email } });
     let correct = await bcrypt.compare(password, user.password);
-    // console.log(correct)
     if (user && correct) {
       return { status: 200, message: "Successful", user: user };
     } else {

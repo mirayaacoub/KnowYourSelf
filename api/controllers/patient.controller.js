@@ -12,11 +12,14 @@ const createPatientController = async (req, res) => {
     if (result.status === 201) {
         return res.status(201).json({ message: result.message, patient: result.patient })
     }
+    if (result.status === 409) {
+        return res.status(409).json({ message: result.message });
+    }
     res.status(500).json({ message: result.message });
 }
 
 const getPatientController = async (req, res) => {
-    const { user_id } = req.body;
+    const user_id = req.query.id;
     const result = await getPatient({ user_id: user_id });
     if (!result) {
         return res.status(400).json({ message: "Missing data" })
@@ -26,29 +29,28 @@ const getPatientController = async (req, res) => {
         console.log(result.message, result.patient);
         return res.status(200).json({ message: result.message, patient: result.patient })
     }
+    else if (result.status === 404) {
+        return res.status(404).json({ message: result.message });
+    }
     console.log(result.message);
-    return res.status(401).json({ message: result.message });
+    return res.status(500).json({ message: result.message });
 }
 
 
 const updatePatientController = async (req, res) => {
-    const { diagnosis_history, user_id } = req.body;
-
+    const { patient } = req.body;
     try {
-        const result = await updatePatient({ diagnosis_history, user_id });
-
+        const result = await updatePatient(patient);
         if (result.status === 200) {
-            // If the update was successful, send a success response
-            res.status(200).json({ message: result.message });
-        } else {
-            // If the update failed, send an error response
-            res.status(404).json({ message: result.message });
+            return res.status(200).json({ message: result.message });
+        } else if (result.status === 404) {
+            return res.status(404).json({ message: result.message});
         }
     } catch (error) {
-        // Handle any unexpected errors
-        console.error('Error in updateDiagnosisController:', error);
-        res.status(500).json({ message: 'Internal server error' });
+        console.error(error);
+        return res.status(500).json({ message: result.message });
     }
+
 };
 
 module.exports = {

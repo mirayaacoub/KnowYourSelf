@@ -1,4 +1,5 @@
 const { Therapist } = require('../models/therapist.model');
+const { User } = require('../models/user.model');
 
 const createTherapist = async (data) => {
     const { user_id, specialty, experience_years } = data;
@@ -33,6 +34,23 @@ const getTherapist = async (data) => {
 
 }
 
+const getAllTherapists = async () => {
+    try {
+        const therapist = await Therapist.findAll({
+            include: [{ model: User, attributes: ['username', 'email'] }]
+        });
+        if (therapist) {
+            return { status: 200, message: "Therapists found", therapist: therapist }
+        }
+        else {
+            return { status: 404, message: "Therapists not found" }
+        }
+    } catch (error) {
+        console.log(error)
+        return { status: 500, message: "Internal server error" }
+    }
+}
+
 const updateTherapist = async (data) => {
     const { user_id, specialty, experience_years } = data;
     try {
@@ -51,6 +69,7 @@ const updateTherapist = async (data) => {
 
 module.exports = {
     getTherapist,
+    getAllTherapists,
     createTherapist,
     updateTherapist
 }

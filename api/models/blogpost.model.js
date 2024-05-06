@@ -40,5 +40,6 @@ const BlogPost = sequelize.define('BlogPost', {
     tableName: 'blog_post',
     timestamps: false, // Disable createdAt and updatedAt
 });
+BlogPost.belongsTo(Therapist, { foreignKey: 'therapist_id', targetKey: 'therapist_id' });
 
 module.exports = { BlogPost };

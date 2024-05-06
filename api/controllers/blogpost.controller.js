@@ -1,5 +1,6 @@
 const {
     createBlogPost,
+    getAllBlogPosts,
     getBlogPostByTitle,
     getBlogPostsByTherapist,
     updateBlogPost
@@ -10,7 +11,7 @@ const createBlogPostController = async (req, res) => {
     const { blogpost } = req.body;
     if (!blogpost) {
         console.log(blogpost)
-        return res.status(401).json({ message: "missing data" });
+        return res.status(400).json({ message: "missing data" });
     }
     const result = await createBlogPost(blogpost);
     // blogpost successfully inserted
@@ -20,11 +21,25 @@ const createBlogPostController = async (req, res) => {
     return res.status(500).json({ message: result.message });
 }
 
-const getBlogPostByTherapistController = async (req, res) => {
-    const therapistId = req.query.therapistId;
-    console.log(therapistId)
+const getAllBlogPostsController = async (req, res) => {
+    const result = await getAllBlogPosts();
+    if (!result) {
+        return res.status(400).json({ message: "Missing data" })
+    }
 
-    const result = await getBlogPostsByTherapist(therapistId);
+    if (result.status === 200) {
+        console.log(result.message, result.blogs);
+        return res.status(200).json({ message: result.message, blogs: result.blogs });
+    }
+    console.log(result.message);
+    return res.status(500).json({ message: result.message });
+}
+
+const getBlogPostByTherapistController = async (req, res) => {
+    const id = req.query.id;
+    console.log(id)
+
+    const result = await getBlogPostsByTherapist(id);
     if (result.status === 200) {
         return res.status(200).json({ message: result.message, blogpost: result.blogpost });
     } else if (result.status === 404) {
@@ -61,6 +76,7 @@ const updateBlogPostController = async (req, res) => {
 
 module.exports = {
     createBlogPostController,
+    getAllBlogPostsController,
     getBlogPostByTherapistController,
     getBlogPostByTitleController,
     updateBlogPostController

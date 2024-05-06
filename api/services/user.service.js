@@ -11,7 +11,7 @@
          if (user) {
              return { status: 200, message: "User found", userId: user.user_id };
          } else {
-             return { status: 404, message: "User does not exist" };
+             return { status: 404, message: "User not found" };
          }
      } catch (error) {
          return { status: 500, message: "Internal error" };
