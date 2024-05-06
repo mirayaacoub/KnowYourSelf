@@ -2,6 +2,7 @@ import { useState } from "react";
 import { authenticateUser } from "../services/user";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+
 //reactquery tanstack
 export function LoginPage() {
   const [email, setEmail] = useState("");
@@ -15,8 +16,8 @@ export function LoginPage() {
         className="flex-1 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: `url('bg.png')` }}
       ></div>
-
       <div className="flex-1 flex justify-center items-center">
+        {/* Add the logo */}
         <form
           onSubmit={async (e) => {
             e.preventDefault();
@@ -30,7 +31,7 @@ export function LoginPage() {
           }}
           className="w-full max-w-md"
         >
-
+          <img src={"logo.png"} alt="Logo" className="h-16 w-auto mb-8" />{" "}
           <label className="block">Email</label>
           <input
             id="email"
@@ -38,14 +39,12 @@ export function LoginPage() {
             onChange={(e) => setEmail(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           ></input>
-
           <label className="block">Password</label>
           <input
             type="password"
             onChange={(e) => setPassword(e.target.value)}
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           ></input>
-          
           {loginResult === 200 ? (
             <Link to={"/"}>
               <input

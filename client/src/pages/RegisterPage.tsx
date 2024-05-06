@@ -32,16 +32,15 @@ export function RegisterPage() {
               isTherapist ? "therapist" : "patient",
               diagnosis,
               parsedExperience,
-              specialty
+              specialty,
             );
 
             if (result === 200) {
-              navigate('/');
-
+              navigate("/");
             }
-      
           }}
         >
+          <img src={"logo.png"} alt="Logo" className="h-16 w-auto mb-8" />{" "}
           <label className="block">Username</label>
           <input
             required
@@ -50,7 +49,6 @@ export function RegisterPage() {
             type="text"
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
-
           <label className="block">Email</label>
           <input
             required
@@ -59,7 +57,6 @@ export function RegisterPage() {
             type="email"
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
-
           <label className="block">Password</label>
           <input
             required
@@ -67,7 +64,6 @@ export function RegisterPage() {
             type="password"
             className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
           />
-
           <div className="mb-4">
             <label className="block">Role</label>
             <div className="flex">
@@ -90,7 +86,6 @@ export function RegisterPage() {
               <label>Therapist</label>
             </div>
           </div>
-
           {isTherapist ? (
             <div>
               <label className="block">Specialty</label>
@@ -116,7 +111,6 @@ export function RegisterPage() {
               />
             </div>
           )}
-
           <input
             type="submit"
             className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded"
@@ -124,7 +118,6 @@ export function RegisterPage() {
           />
           <br />
           <br />
-
           <Link to={"/login"} className="block">
             Already have an account? Login.
           </Link>

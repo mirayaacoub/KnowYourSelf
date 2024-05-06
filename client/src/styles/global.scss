@@ -1,12 +1,12 @@
-@import "./variables";
-@import "./reset";
-
 body {
-  background-color: $background-color;    
+  background-color: #ffffff; /* White background */
 }
 
 .App {
-  @include flex-column-center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   height: 100vh;
   width: 100vw;
 }
@@ -14,6 +14,7 @@ body {
 .profile-name {
   margin: 0 0 0.5rem;
   font-size: 2.2rem;
+  color: #000000; /* Black text color */
 }
 
 .profile-picture {
@@ -25,4 +26,5 @@ body {
 
 .profile-bio {
   font-size: 1.6rem;
+  color: #000000; /* Black text color */
 }

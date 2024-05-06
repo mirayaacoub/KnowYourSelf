@@ -28,7 +28,7 @@ export function ProfilePage() {
     <>
       <div className="flex h-screen items-center justify-center mt-8">
         <Sidebar></Sidebar>
-        <div className="flex-1 flex-col justify-center items-center  mt-[-10rem]">
+        <div className="flex-1 flex-col justify-center items-center  mt-[-10rem] ml-20">
           <AvatarSizes></AvatarSizes>
           <h1 className="my-2">Personal Information</h1>
           <form
@@ -40,11 +40,11 @@ export function ProfilePage() {
             <label className="block mb-2">Username</label>
             <input
               required
-              className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+              // className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
               autoComplete="username"
               onChange={(e) => setUsername(e.target.value)}
               type="text"
-              // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+              className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
             />
 
             <label className="block mb-2">Email</label>
@@ -53,8 +53,8 @@ export function ProfilePage() {
               autoComplete="email"
               onChange={(e) => setEmail(e.target.value)}
               type="email"
-              className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
-              //  className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+              // className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+              className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
             />
 
             {isTherapist ? (
@@ -68,8 +68,8 @@ export function ProfilePage() {
                 <label className="block mb-2">Years of Experience</label>
                 <input
                   type="text"
-                  className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
-                  // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                  // className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+                  className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
                   onChange={(e) => setExperience(e.target.value)}
                 />
               </div>
@@ -78,8 +78,8 @@ export function ProfilePage() {
                 <label className="block mb-2">Diagnosis History</label>
                 <input
                   type="text"
-                  // className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
-                  className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
+                  className="block w-full border border-gray-300 rounded-md px-4 py-2 mb-4"
+                  // className="block w-full border border-white rounded-md px-4 py-2 mb-4 bg-black text-white"
                   onChange={(e) => setDiagnosis(e.target.value)}
                 />
               </div>
