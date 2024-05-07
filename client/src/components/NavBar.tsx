@@ -33,13 +33,13 @@ function Navbar() {
                 <Link to="/" className="">
                   Home
                 </Link>
-                <Link to="/aboutUs">About Us</Link>
+                <Link to="/about-us">About Us</Link>
                 <Link to="/blogs">Blogs</Link>
-                <Link to="/findTherapist">Find a Therapist</Link>
+                <Link to="/find-therapist">Find a Therapist</Link>
               </div>
               {sessionStorage.getItem("token") ? (
                 <Link
-                  to="/profilePage"
+                  to="/profile-page"
                   className="flex gap-1 font-bold text-gray-700 items-center "
                 >
                   <UserIcon className="h-6 w-6 text-primary" />

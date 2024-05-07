@@ -37,7 +37,12 @@ export async function getAllTherapists() {
 }
 
 export async function updateTherapist(user_id: number, specialty: string, experience_years: number) {
-    const res = await Requests.put(`/therapist`, { user_id: user_id, specialty: specialty, experience_years: experience_years });
+    const therapist = {
+        user_id:user_id,
+        specialty: specialty,
+        experience_years: experience_years
+    }
+    const res = await Requests.put('/therapist', {therapist});
 
     if (res.status === 200) {
         console.log("therapist updated succesfully");

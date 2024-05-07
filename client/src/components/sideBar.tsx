@@ -12,14 +12,18 @@ import {
   UserCircleIcon,
   InboxIcon,
   PowerIcon,
+  CalendarDaysIcon,
+  NewspaperIcon,
 } from "@heroicons/react/24/solid";
+
 
 export function Sidebar() {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
   };
-
+  // Retrieve user data from session storage
+  const user = JSON.parse(sessionStorage.getItem("user"));
   return (
     <Card className="h-[calc(110vh-2rem)] w-full max-w-[15rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 ml-10 p-4">
@@ -55,6 +59,24 @@ export function Sidebar() {
             />
           </ListItemSuffix> */}
         </ListItem>
+        <ListItem className="my-2">
+          {/* <ListItemPrefix>
+              {/* You can use an appropriate indicator for Blogposts */}
+          {/* <div className="h-5 w-5 bg-gray-300 rounded-full"></div> */}
+          {/* </ListItemPrefix> */}
+          <ListItemPrefix>
+            <CalendarDaysIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          Schedule
+        </ListItem>
+        {user && user.role === "therapist" && (
+          <ListItem className="my-2">
+            <ListItemPrefix>
+              <NewspaperIcon className="h-5 w-5"></NewspaperIcon>
+            </ListItemPrefix>
+            Blogposts
+          </ListItem>
+        )}
         <ListItem className="my-2">
           <ListItemPrefix>
             <PowerIcon className="h-5 w-5" />
