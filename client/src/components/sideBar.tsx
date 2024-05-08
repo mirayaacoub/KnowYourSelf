@@ -16,14 +16,16 @@ import {
   NewspaperIcon,
 } from "@heroicons/react/24/solid";
 
-
 export function Sidebar() {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
   };
   // Retrieve user data from session storage
-  const user = JSON.parse(sessionStorage.getItem("user"));
+  // const user = JSON.parse(sessionStorage.getItem("user"));
+  const userDataString = sessionStorage.getItem("user");
+  const user = userDataString ? JSON.parse(userDataString) : null;
+
   return (
     <Card className="h-[calc(110vh-2rem)] w-full max-w-[15rem] p-4 shadow-xl shadow-blue-gray-900/5">
       <div className="mb-2 ml-10 p-4">

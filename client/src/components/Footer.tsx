@@ -1,22 +1,16 @@
 "use client";
 
 import { Footer } from "flowbite-react";
-import {
-  BsDribbble,
-  BsFacebook,
-  BsGithub,
-  BsInstagram,
-  BsTwitter,
-} from "react-icons/bs";
+import { BsFacebook, BsGithub, BsInstagram, BsTwitter } from "react-icons/bs";
 
 function FooterComponent() {
   return (
     <Footer container>
-      <div className="absolute bottom-5 w-full">
+      <div className="absolute bottom-0 w-full">
         <Footer.Divider />
-        <br></br>
-        <div className="grid w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
-          <div>
+
+        <div className="grid w-full justify-between sm:flex sm:justify-start md:flex md:grid-cols-1">
+          <div className="sm:col-span-1 mt-4">
             <Footer.Brand
               href="https://flowbite.com"
               src="https://flowbite.com/docs/images/logo.svg"
@@ -25,23 +19,14 @@ function FooterComponent() {
             />
           </div>
           <div className="grid grid-cols-2 gap-6 sm:mt-4 sm:grid-cols-3 sm:gap-6 pr-6">
-            <div>
+            <div className="sm:col-span-1 ml-10">
               <Footer.Title title="Contact Us" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">+961 81 918 049</Footer.Link>
-
-                {/* <Footer.Link href="#">Tailwind CSS</Footer.Link> */}
+                {/* Add more contact links here */}
               </Footer.LinkGroup>
             </div>
-            {/* <div>
-              <Footer.Title title="Follow us" />
-              <Footer.LinkGroup col>
-                <Footer.Link href="#">Github</Footer.Link>
-                <span className="hidden sm:inline">&nbsp;</span>
-                <Footer.Link href="#">Discord</Footer.Link>
-              </Footer.LinkGroup>
-            </div> */}
-            <div>
+            <div className="sm:col-span-1 ml-8">
               <Footer.Title title="Legal" />
               <Footer.LinkGroup col>
                 <Footer.Link href="#">Privacy Policy</Footer.Link>
