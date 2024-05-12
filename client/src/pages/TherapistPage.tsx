@@ -49,21 +49,23 @@ export function TherapistPage() {
 
   return (
     <>
-      <Navbar />
-      <SearchBar onChange={handleSearchChange} />{" "}
-      {/* Pass handleSearchChange as prop */}
-      <div className="mt-8 ml-8 flex flex-wrap">
-        {filteredTherapists.map((therapist) => (
-          <ProfileCard
-            key={therapist.id}
-            therapistId={therapist.id}
-            experience={therapist.experience}
-            email={therapist.email}
-            name={therapist.name}
-            bio={therapist.bio}
-            pic={therapist.pic}
-          />
-        ))}
+      <div className="flex flex-col min-h-screen">
+        <Navbar />
+        <SearchBar onChange={handleSearchChange} />{" "}
+        {/* Pass handleSearchChange as prop */}
+        <div className="mt-8 ml-8 flex flex-wrap">
+          {filteredTherapists.map((therapist) => (
+            <ProfileCard
+              key={therapist.id}
+              therapistId={therapist.id}
+              experience={therapist.experience}
+              email={therapist.email}
+              name={therapist.name}
+              bio={therapist.bio}
+              pic={therapist.pic}
+            />
+          ))}
+        </div>
       </div>
       <FooterComponent />
     </>
