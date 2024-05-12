@@ -28,12 +28,13 @@ export function Sidebar() {
 
   return (
     <Card className="h-[calc(110vh-2rem)] w-full max-w-[15rem] p-4 shadow-xl shadow-blue-gray-900/5">
-      <div className="mb-2 ml-10 p-4">
-        {/* <Typography variant="h5" color="blue-gray">
-          Sidebar
-        </Typography> */}
-      </div>
       <List className="ml-5">
+        <ListItem className="my-2 mb-5 mt-2 ">
+          <Link to="/">
+            <img src="logo.png" alt="Logo" className="w-full h-auto" />
+          </Link>
+        </ListItem>
+
         <ListItem className="my-2 ">
           <ListItemPrefix>
             <UserCircleIcon className="h-5 w-5" />

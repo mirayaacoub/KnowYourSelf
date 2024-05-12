@@ -3,11 +3,11 @@
 .card {
   width: $card-width;
   height: $card-height;
-  @include flex-column-space-around;
+  // @include flex-column-space-around;
   padding: 1rem 3rem;
   border-radius: $border-radius;
   background-color: $card-background-color;
   box-shadow: $box-shadow;
-  overflow: hidden;
+  overflow: auto;
   color: black;
 }

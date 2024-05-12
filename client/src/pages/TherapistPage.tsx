@@ -3,7 +3,6 @@ import FooterComponent from "../components/Footer";
 import { ProfileCard } from "../components/therapistcard/ProfileCard";
 import SearchBar from "../components/SearchBar";
 import { useState } from "react";
-import avatarImage from "../assets/avatar.jpg"; // Import the image asset
 import { Random } from "random-js";
 
 const random = new Random(); // Create a new instance of Random

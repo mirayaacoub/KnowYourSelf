@@ -1,6 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
+
 body {
   background-color: #ffffff; /* White background */
 }
+
+@font-face {
+  font-family: "ConcertOne";
+  src: url("../assets/fonts/ConcertOne-Regular.ttf") format("truetype"); /* Adjust the path and format as needed */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Add similar @font-face rules for other font variations (bold, italic, etc.) if needed */
 
 .App {
   display: flex;
@@ -39,4 +50,11 @@ body {
   background-color: $card-background-color;
   overflow: auto;
   // @include flex-column-space-around;
+}
+
+.home-heading {
+  font-family: "ConcertOne", "Times New Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20rem;
 }

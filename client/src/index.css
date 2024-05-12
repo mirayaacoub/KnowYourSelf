@@ -1,6 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Concert+One&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "ConcertOne";
+  src: url("../assets/fonts/ConcertOne-Regular.ttf") format("truetype"); /* Adjust the path and format as needed */
+  font-weight: normal;
+  font-style: normal;
+}
 
 body,
 html {
@@ -20,4 +28,11 @@ html {
 input,
 textarea {
   color: black;
+}
+
+.home-heading {
+  font-family: "Concert One", "Times New Roman", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 5rem;
 }
