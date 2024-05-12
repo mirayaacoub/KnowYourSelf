@@ -65,6 +65,9 @@ export function LoginPage() {
           <Link to={"/register"} className="block">
             Don't have an account? Signup
           </Link>
+          <Link to={"/"} className="block mt-5 justify-center">
+            Continue as a Guest.
+          </Link>
         </form>
       </div>
     </div>
