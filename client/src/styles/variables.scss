@@ -2,10 +2,9 @@ $background-color: #f0f0f0;
 
 $card-width: 15rem;
 $card-height: 20rem;
-$border-radius: 4px;
-$box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+$border-radius: 30px;
+$box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
 $card-background-color: white;
-
 
 @mixin flex-column-center {
   display: flex;

@@ -18,13 +18,25 @@ body {
 }
 
 .profile-picture {
-  width: 50%;
+  width: 40%;
   height: auto;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 50% 50% 50% 50%;
 }
 
 .profile-bio {
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   color: #000000; /* Black text color */
+  max-width: 100%; /* Set maximum width */
+  word-wrap: break-word; /* Allow long words to break */
+}
+
+.card {
+  width: $card-width;
+  height: $card-height;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  background-color: $card-background-color;
+  overflow: auto;
+  // @include flex-column-space-around;
 }

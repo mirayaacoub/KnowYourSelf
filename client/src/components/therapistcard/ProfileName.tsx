@@ -11,5 +11,5 @@ interface ProfileNameProps {
 // export default ProfileName;
 
 export function ProfileName({ name }: ProfileNameProps) {
-  return <p className="profile-bio">{name}</p>;
+  return <p className="profile-bio font-bold">{name}</p>;
 }
