@@ -25,6 +25,7 @@ const therapist = require('./routes/therapist');
 const patient = require('./routes/patient');
 const blogpost = require('./routes/blogpost');
 const schedule = require('./routes/schedule');
+const comment = require('./routes/comment');
 server = http.createServer(app); 
 
 app.get('/', (req, res) => {
@@ -38,6 +39,7 @@ app.use('/api/therapist', therapist);
 app.use('/api/patient', patient);
 app.use('/api/blogpost', blogpost);
 app.use('/api/schedule', schedule);
+app.use('/api/comment', comment)
 app.use(express.static(buildDirectory));
 
 app.listen(PORT, () => {
