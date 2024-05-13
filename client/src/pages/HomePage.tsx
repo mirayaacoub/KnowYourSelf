@@ -21,7 +21,7 @@ export function HomePage() {
             </p>
             <p className="text-black text-sm mb-6 text-center mt-4 ">
               Your mental health comes first! Find a suitable licensed therapist
-              from now the comfort your own home. Choose among many trusted and
+              now from the comfort your own home. Choose among many trusted and
               experienced therapists.
             </p>
             <Link to="/find-therapist">
@@ -62,9 +62,9 @@ export function HomePage() {
           </div>
         </div>
       </div>
-      <div className="row mt-20">
-        <FooterComponent />
-      </div>
+      {/* <div className="row mt-20"> */}
+      <FooterComponent />
+      {/* </div> */}
     </>
   );
 }

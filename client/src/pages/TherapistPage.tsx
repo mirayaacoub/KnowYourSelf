@@ -51,7 +51,11 @@ export function TherapistPage() {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <SearchBar onChange={handleSearchChange} />{" "}
+        <div className="h-[6rem] bg-[#C2C3D2] flex flex-col justify-center items-center gap-y-[0.5rem]">
+          <p className="max-w-[35rem] text-center">
+            <SearchBar onChange={handleSearchChange} />{" "}
+          </p>
+        </div>
         {/* Pass handleSearchChange as prop */}
         <div className="mt-8 ml-8 flex flex-wrap">
           {filteredTherapists.map((therapist) => (
