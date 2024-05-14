@@ -30,7 +30,11 @@ textarea {
   color: black;
 }
 
-.home-heading {
+button {
+  background-color: #ccccff;
+}
+
+.home-headng {
   font-family: "Concert One", "Times New Roman", serif;
   font-weight: 400;
   font-style: normal;

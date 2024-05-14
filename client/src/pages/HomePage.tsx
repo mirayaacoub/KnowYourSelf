@@ -9,7 +9,7 @@ export function HomePage() {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="flex items-center justify-between w-full bg-[#C2C3D2] px-0 py-6 ">
+        <div className="flex items-center justify-between w-full bg-[#ccccff] px-0 py-6 ">
           <img
             src="brainKnit.png"
             className="w-60 ml-6 h-70"
@@ -41,7 +41,7 @@ export function HomePage() {
 
         {/* New div */}
         <div className="flex justify-between items-center bg-white py-7 pl-20">
-          <div className="bg-[#C2C3D2] mt-10 ml-24 rounded-full w-50 h-48 flex items-center justify-center">
+          <div className="bg-[#ccccff] mt-10 ml-24 rounded-full w-50 h-48 flex items-center justify-center">
             <img src="notebook.png" className="w-30 h-30 p-5" alt="Notebook" />
           </div>
 
@@ -55,7 +55,7 @@ export function HomePage() {
               of your fingertips!
             </p>
             <Link to="/blogs">
-              <button className=" bg-transparent border border-black text-black font-bold rounded-full px-4 py-3 hover:bg-black hover:text-white focus:outline-none">
+              <button className="  bg-[#ccccff] border-black text-black font-bold rounded-full px-6 py-3 hover:bg-black hover:text-white focus:outline-none">
                 Read a Blog
               </button>
             </Link>

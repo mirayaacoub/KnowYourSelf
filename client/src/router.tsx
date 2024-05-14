@@ -12,6 +12,7 @@ import { ProfilePage } from "./pages/ProfilePage.tsx";
 import { TherapistPage } from "./pages/TherapistPage.tsx";
 import { BookPage } from "./pages/BookPage.tsx";
 import BlogsPage from "./pages/BlogPage.tsx";
+import ReadBlogPage from "./pages/ReadBlogPage.tsx";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +22,7 @@ export const router = createBrowserRouter(
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/about-us" element={<AboutUs />}></Route>
       <Route path="/profile-page" element={<ProfilePage />}></Route>
+      <Route path="/read-blog/:title" element={<ReadBlogPage />}></Route>
       <Route
         path="/find-therapist"
         element={<TherapistPage></TherapistPage>}

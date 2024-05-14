@@ -11,7 +11,6 @@ const BlogsPage = () => {
     const fetchData = async () => {
       const blogPostsData = await getAllBlogposts();
       setBlogPosts(blogPostsData);
-      console.log(blogPostsData);
     };
     fetchData();
   }, []);
@@ -20,7 +19,7 @@ const BlogsPage = () => {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="h-[12rem] bg-[#C2C3D2] flex flex-col justify-center items-center gap-y-[0.5rem]">
+        <div className="h-[12rem] bg-[#ccccff] flex flex-col justify-center items-center gap-y-[0.5rem]">
           <h1 className="text-2xl font-extrabold">
             Mind Matters: Exploring Mental Health
           </h1>
@@ -32,18 +31,20 @@ const BlogsPage = () => {
         <div className="h-8"></div>
 
         <div className="flex-grow grid mt-3 grid-cols-3 px-28 gap-x-10">
-          {blogPosts.map((blogPost) => (
-            <BlogPost
-              key={blogPost.blog_id}
-              blog_id={blogPost.blog_id}
-              blog_title={blogPost.blog_title}
-              content={blogPost.content}
-              created_at={blogPost.created_at}
-              updated_at={blogPost.updated_at}
-              therapist_id={blogPost.therapist_id}
-              Therapist={blogPost.Therapist}
-            />
-          ))}
+          {blogPosts.map((blogPost) => {
+            return (
+              <BlogPost
+                key={blogPost.blog_id}
+                blog_id={blogPost.blog_id}
+                blog_title={blogPost.blog_title}
+                content={blogPost.content}
+                created_at={blogPost.created_at}
+                updated_at={blogPost.updated_at}
+                therapist_id={blogPost.therapist_id}
+                Therapist={blogPost.Therapist}
+              />
+            );
+          })}
         </div>
 
         <div className="row mt-20">

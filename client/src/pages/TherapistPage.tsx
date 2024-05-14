@@ -51,7 +51,7 @@ export function TherapistPage() {
     <>
       <div className="flex flex-col min-h-screen">
         <Navbar />
-        <div className="h-[6rem] bg-[#C2C3D2] flex flex-col justify-center items-center gap-y-[0.5rem]">
+        <div className="h-[6rem] bg-[#ccccff] flex flex-col justify-center items-center gap-y-[0.5rem]">
           <p className="max-w-[35rem] text-center">
             <SearchBar onChange={handleSearchChange} />{" "}
           </p>

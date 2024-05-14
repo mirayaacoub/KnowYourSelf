@@ -6,19 +6,7 @@ import { updatePatient, getPatient } from "../services/patient";
 import { updateTherapist, getTherapist } from "../services/therapist";
 import { DialogBox } from "../components/dialogbox";
 export function ProfilePage() {
-  // const [username, setUsername] = useState("");
   let s = sessionStorage.getItem("user");
-  // let role;
-  // if (s) {
-  //   let userObj = JSON.parse(s);
-  //   role = userObj.role;
-  //   console.log("user email isss " + username);
-  // }
-  // const [isTherapist, toggleIsTherapist] = useState(role == "therapist");
-
-  // if (role == "therapist") {
-  //   toggleIsTherapist(true);
-  // }
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +20,6 @@ export function ProfilePage() {
   const [formDataChanged, setFormDataChanged] = useState(false);
   const [dialogMessage, setDialogMessage] = useState("");
   const [showDialog, setShowDialog] = useState(false);
-
 
   useEffect(() => {
     let s = sessionStorage.getItem("user");
@@ -95,7 +82,7 @@ export function ProfilePage() {
     setFormDataChanged(false);
     // Perform action to save updated user data
     if (role === "patient") {
-      console.log(id, diagnosis)
+      console.log(id, diagnosis);
       try {
         await updatePatient(id, diagnosis);
         setDialogMessage("Patient data updated successfully!");
@@ -106,11 +93,8 @@ export function ProfilePage() {
         console.error("Error updating patient data:", error);
       }
     } else {
-
-
-      console.log(id, specialty, experience)
+      console.log(id, specialty, experience);
       try {
-
         await updateTherapist(id, specialty, experience);
         setDialogMessage("Therapist data updated successfully!");
         setShowDialog(true);
@@ -200,8 +184,9 @@ export function ProfilePage() {
             <input
               type="submit"
               disabled={!formDataChanged}
-              className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ${!formDataChanged ? "opacity-50 cursor-not-allowed" : ""
-                }`}
+              className={`bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded ${
+                !formDataChanged ? "opacity-50 cursor-not-allowed" : ""
+              }`}
               value="Save Changes"
             />
             <br />

@@ -1,7 +1,23 @@
 import { FaArrowRightLong } from "react-icons/fa6";
 import { formatDate } from "../util/utils";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
+
+interface BlogPostLinkProps {
+  blog_id: number;
+  blog_title: string;
+}
+
+const BlogPostLink: React.FC<BlogPostLinkProps> = ({ blog_title }) => {
+  return (
+    <Link to={`/read-blog/${blog_title}`}>
+      <p className="text-blue-500 mr-2 hover:underline">Read More</p>
+    </Link>
+  );
+};
 
 const BlogPost: React.FC<BlogPostData> = ({
+  blog_id,
   blog_title,
   content,
   Therapist,
@@ -38,13 +54,13 @@ const BlogPost: React.FC<BlogPostData> = ({
             <p className="text-sm text-stone-500">{formatDate(updated_at)}</p>
           </div>
         </div>
-        <p className="font-bold mt-3">{blog_title}</p>
-        <p className="text-sm mt-1" style={textClampStyle}>
+        <p className="font-bold justify-center mt-3 ml-1">{blog_title}</p>
+        <p className="text-sm mt-1 ml-1" style={textClampStyle}>
           {content}
         </p>
         <div className="flex items-center mt-2">
-          <p className="text-blue-500 mr-2">Read More</p>
-          <FaArrowRightLong className="text-blue-400" />
+          <BlogPostLink blog_id={blog_id} blog_title={blog_title} />
+          <FaArrowRightLong className="text-blue-400 mt-1" />
         </div>
       </div>
     </div>
