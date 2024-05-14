@@ -6,7 +6,7 @@ import {
   ListItemSuffix,
   Chip,
 } from "@material-tailwind/react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Cog6ToothIcon,
   UserCircleIcon,
@@ -14,13 +14,20 @@ import {
   PowerIcon,
   CalendarDaysIcon,
   NewspaperIcon,
+  HomeIcon, 
 } from "@heroicons/react/24/solid";
 
 export function Sidebar() {
+  const navigate = useNavigate();
+
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user");
   };
+
+  const goToHome = () => {
+    navigate('/');
+  }
   // Retrieve user data from session storage
   // const user = JSON.parse(sessionStorage.getItem("user"));
   const userDataString = sessionStorage.getItem("user");
@@ -40,6 +47,14 @@ export function Sidebar() {
             <UserCircleIcon className="h-5 w-5" />
           </ListItemPrefix>
           Profile
+        </ListItem>
+        <ListItem className="my-2 ">
+          <ListItemPrefix>
+            <HomeIcon className="h-5 w-5" />
+          </ListItemPrefix>
+          <Link to="/">
+            <button onClick={goToHome}>Home</button>
+          </Link>
         </ListItem>
         <ListItem className="my-2">
           <ListItemPrefix>

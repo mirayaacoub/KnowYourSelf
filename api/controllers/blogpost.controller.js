@@ -59,7 +59,7 @@ const getBlogPostByIdController = async (req, res) => {
   const id = req.query.id;
   console.log(id);
 
-  const result = await getBlogPostsById(id);
+  const result = await getBlogPostById(id);
   if (result.status === 200) {
     return res
       .status(200)
@@ -73,14 +73,13 @@ const getBlogPostByIdController = async (req, res) => {
 const getBlogPostByTitleController = async (req, res) => {
   const title = req.query.title;
   const result = await getBlogPostByTitle(title);
-  if (result.status === 200) {
-    return res
-      .status(200)
-      .json({ message: result.message, blogpost: result.blogpost });
-  } else if (result.status === 404) {
-    return res.status(404).json({ message: result.message });
-  }
-  return res.status(500).json({ message: result.message });
+  return res.status(result.status).json(result);
+  // if (result.status === 200) {
+  //   return res.status(200).json(result.blogpost);
+  // } else if (result.status === 404) {
+  //   return res.status(404).json({ message: result.message });
+  // }
+  // return res.status(500).json({ message: result.message });
 };
 
 const updateBlogPostController = async (req, res) => {

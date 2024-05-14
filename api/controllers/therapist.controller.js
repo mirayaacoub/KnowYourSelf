@@ -1,4 +1,4 @@
-const { createTherapist, getTherapist, getAllTherapists, updateTherapist } = require('../services/therapist.service');
+const { createTherapist, getTherapist, getAllTherapists, updateTherapist, getTherapistById } = require('../services/therapist.service');
 require('dotenv').config();
 
 const createTherapistController = async (req, res) => {
@@ -35,7 +35,7 @@ const getAllTherapistsController = async (req, res) => {
 const getTherapistController = async (req, res) => {
     // const { user_id } = req.body;
     const user_id = req.query.id;
-    const result = await getTherapist({ user_id: user_id });
+    const result = await getTherapist({ user_id: user_id});
     if (!result) {
         return res.status(400).json({ message: "Missing data" })
     }
@@ -44,8 +44,30 @@ const getTherapistController = async (req, res) => {
         console.log(result.message, result.therapist);
         return res.status(200).json({ message: result.message, therapist: result.therapist })
     }
+    if (result.status === 404) {
+        return res.status(404).json({ message: result.message });
+    }
     console.log(result.message);
-    return res.status(401).json({ message: result.message });
+    return res.status(500).json({ message: result.message });
+}
+
+const getTherapistByIdController = async (req, res) => {
+    // const { user_id } = req.body;
+    const therapist_id = req.query.id;
+    const result = await getTherapistById({ therapist_id: therapist_id});
+    if (!result) {
+        return res.status(400).json({ message: "Missing data" })
+    }
+
+    if (result.status === 200) {
+        console.log(result.message, result.therapist);
+        return res.status(200).json({ message: result.message, therapist: result.therapist })
+    }
+    if (result.status === 404) {
+        return res.status(404).json({ message: result.message });
+    }
+    console.log(result.message);
+    return res.status(500).json({ message: result.message });
 }
 
 const updateTherapistController = async (req, res) => {
@@ -70,5 +92,6 @@ module.exports = {
     getTherapistController,
     getAllTherapistsController,
     createTherapistController,
+    getTherapistByIdController,
     updateTherapistController
 }

@@ -18,10 +18,14 @@ const createTherapist = async (data) => {
     }
 }
 
+/**
+ * get therapist by passing therapist id as query parameter
+ */
 const getTherapist = async (data) => {
-    const { user_id } = data;
+    // const id = data.user_id;
     try {
-        const therapist = await Therapist.findOne({ where: { user_id: user_id } });
+        const therapist = await Therapist.findOne({ where: { user_id: data.user_id } });
+        // console.log(id)
         if (therapist) {
             return { status: 200, message: "Therapist found", therapist: therapist }
         }
@@ -29,6 +33,25 @@ const getTherapist = async (data) => {
             return { status: 404, message: "Not found" }
         }
     } catch (error) {
+        console.log(error)
+        return { status: 500, message: "Internal server error" }
+    }
+
+}
+
+const getTherapistById = async (data) => {
+    // const id = data.user_id;
+    try {
+        const therapist = await Therapist.findOne({ where: { therapist_id: data.therapist_id } });
+        // console.log(id)
+        if (therapist) {
+            return { status: 200, message: "Therapist found", therapist: therapist }
+        }
+        else {
+            return { status: 404, message: "Not found" }
+        }
+    } catch (error) {
+        console.log(error)
         return { status: 500, message: "Internal server error" }
     }
 
@@ -70,6 +93,7 @@ const updateTherapist = async (data) => {
 module.exports = {
     getTherapist,
     getAllTherapists,
+    getTherapistById,
     createTherapist,
     updateTherapist
 }

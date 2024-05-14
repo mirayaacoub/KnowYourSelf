@@ -1,0 +1,17 @@
+.react-datetime-picker {
+    background-color: #6CB4EE;
+    font-size: large;
+}
+
+/* 
+  .react-calendar{
+    background-color: aqua;
+  } */
+
+/* .react-calendar button{
+    background-color: aqua;
+  } */
+
+.react-calendar__month-view__days__day--weekend {
+    color: #6CB4EE;
+}

@@ -2,6 +2,7 @@ const { BlogPost } = require("../models/blogpost.model");
 const { User } = require("../models/user.model");
 const { Therapist } = require("../models/therapist.model");
 const { getTherapist } = require("../services/therapist.service");
+const { where } = require("sequelize");
 
 const createBlogPost = async (data) => {
   const { user_id, blog_title, content } = data;
@@ -85,14 +86,26 @@ const getBlogPostsByTherapist = async (data) => {
   }
 };
 
-const getBlogPostByTitle = async (data) => {
-  const blog_title = data;
+const getBlogPostByTitle = async (blog_title) => {
   try {
     const blogpost = await BlogPost.findAll({
+      include: [
+        {
+          model: Therapist,
+          attributes: ["therapist_id"],
+          include: [
+            {
+              model: User,
+              attributes: ["username", "email"],
+            },
+          ],
+        },
+      ],
       where: { blog_title: blog_title },
     });
+
     if (blogpost.length > 0) {
-      return { status: 200, message: "BlogPost found", blogpost: blogpost };
+      return { status: 200, message: "BlogPost found", blogpost: blogpost[0] };
     } else {
       return { status: 404, message: "No BlogPost found" };
     }

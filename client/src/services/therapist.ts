@@ -19,6 +19,25 @@ export async function getTherapist(
     }
 }
 
+export async function getTherapistById(
+    therapist_id: number
+) {
+    const res = await Requests.get(`/therapist/id?id=${therapist_id}`);
+
+    if (res.status === 400) {
+        console.log("Missing data");
+        return
+    }
+    else if (res.status === 200) {
+        console.log("Therapist found");
+        return res.data.therapist;
+    }
+    else {
+        console.log("Error", res.data.error);
+        return res.statusText;
+    }
+}
+
 export async function getAllTherapists() {
     const res = await Requests.get(`/therapist/all`);
 
