@@ -15,13 +15,14 @@ const createBlogPostController = async (req, res) => {
     return res.status(400).json({ message: "missing data" });
   }
   const result = await createBlogPost(blogpost);
+  console.log(result.message);
   // blogpost successfully inserted
   if (result.status === 201) {
     return res
       .status(201)
       .json({ message: result.message, blogpost: result.blogpost });
   }
-  return res.status(500).json({ message: result.message });
+  return res.status(result.status).json({ message: result.message });
 };
 
 const getAllBlogPostsController = async (req, res) => {

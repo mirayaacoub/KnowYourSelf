@@ -8,6 +8,7 @@ const createBlogPost = async (data) => {
   const { user_id, blog_title, content } = data;
 
   try {
+    console.log(user_id);
     const res = await getTherapist({ user_id });
 
     if (res.status === 200) {
