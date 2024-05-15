@@ -5,6 +5,7 @@ import {
   useNavigate,
 } from "react-router-dom";
 import { RegisterPage } from "./pages/RegisterPage.tsx";
+import CreateBlogPage from "./pages/UploadBlogPage.tsx";
 import { LoginPage } from "./pages/LoginPage.tsx";
 import { HomePage } from "./pages/HomePage.tsx";
 import { AboutUs } from "./pages/AboutUs.tsx";
@@ -23,6 +24,7 @@ export const router = createBrowserRouter(
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/about-us" element={<AboutUs />}></Route>
       <Route path="/profile-page" element={<ProfilePage />}></Route>
+      <Route path="/create-blog" element={<CreateBlogPage />}></Route>
       <Route path="/read-blog/:title" element={<ReadBlogPage />}></Route>
       <Route
         path="/find-therapist"
@@ -33,7 +35,10 @@ export const router = createBrowserRouter(
         element={<BookPage></BookPage>}
       ></Route>
       <Route path="blogs" element={<BlogsPage></BlogsPage>}></Route>
-      <Route path="/schedule/:userId" element={<SchedulePage></SchedulePage>}></Route>
+      <Route
+        path="/schedule/:userId"
+        element={<SchedulePage></SchedulePage>}
+      ></Route>
     </Route>,
   ),
 );

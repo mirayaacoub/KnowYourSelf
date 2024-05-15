@@ -14,7 +14,7 @@ import {
   PowerIcon,
   CalendarDaysIcon,
   NewspaperIcon,
-  HomeIcon, 
+  HomeIcon,
 } from "@heroicons/react/24/solid";
 
 export function Sidebar() {
@@ -26,8 +26,8 @@ export function Sidebar() {
   };
 
   const goToHome = () => {
-    navigate('/');
-  }
+    navigate("/");
+  };
   // Retrieve user data from session storage
   // const user = JSON.parse(sessionStorage.getItem("user"));
   const userDataString = sessionStorage.getItem("user");
@@ -92,7 +92,7 @@ export function Sidebar() {
             <ListItemPrefix>
               <NewspaperIcon className="h-5 w-5"></NewspaperIcon>
             </ListItemPrefix>
-            Blogposts
+            <Link to="/create-blog">Blogposts</Link>
           </ListItem>
         )}
         <ListItem className="my-2">

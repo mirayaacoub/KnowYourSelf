@@ -1,26 +1,35 @@
-import { AxiosResponse } from "axios";
-import Requests from "./http-common.ts";
+import axios, { AxiosResponse } from "axios";
+import Requests from "./http-common";
 
 export async function createBlogPosts(
   user_id: number,
   blog_title: string,
   content: string,
-) {
-  const res = await Requests.post("/blogpost", {
-    user_id,
-    blog_title,
-    content,
-  });
+): Promise<BlogPostData | string | void> {
+  try {
+    const res = await Requests.post("/blogpost", {
+      blogpost: {
+        user_id,
+        blog_title,
+        content,
+      },
+    });
 
-  if (res.status === 400) {
-    console.log("Missing data");
-    return;
-  } else if (res.status === 201) {
-    console.log("Blogpost created");
-    return res.data.blogpost;
-  } else {
-    console.log("Error", res.data.error);
-    return res.statusText;
+    if (res.status === 201) {
+      console.log("Blogpost created");
+      return res.data.blogpost;
+    } else if (res.status === 400) {
+      console.log("Missing data");
+    } else {
+      console.log("Error", res.data.error || res.statusText);
+      return res.statusText;
+    }
+  } catch (error) {
+    if (axios.isAxiosError(error)) {
+      console.error("Request failed", error.response?.data || error.message);
+    } else {
+      console.error("Unexpected error", error);
+    }
   }
 }
 
