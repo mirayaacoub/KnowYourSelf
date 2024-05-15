@@ -26,8 +26,14 @@ export function ProfileCard({
     navigate(`/book-appointment/${therapistId}`);
   };
 
+  const handleChatWithTherapist = () => {
+    navigate(`/chat/${therapistId}`);
+  };
+
   return (
-    <div className={`${styles.card} flex flex-col justify-between h-full mr-3`}>
+    <div
+      className={`${styles.card} mt-3 flex flex-col justify-between h-full mr-3`}
+    >
       <div className="flex-none">
         {" "}
         {/* Content that doesn't grow */}
@@ -47,7 +53,7 @@ export function ProfileCard({
       <div className="flex-none">
         {" "}
         {/* Content that doesn't grow */}
-        <div className="mt-2 flex justify-center">
+        <div className="mt-2 flex-col items-center">
           {" "}
           {/* Center the button */}
           <button
@@ -55,6 +61,12 @@ export function ProfileCard({
             onClick={handleBookAppointment}
           >
             Book Appointment
+          </button>
+          <button
+            className="bg-[#ccccff] hover:bg-black text-white font-bold py-1 px-2 mt-2 rounded focus:outline-#ccccff focus:shadow-outline text-sm"
+            onClick={handleChatWithTherapist}
+          >
+            Chat with Therapist
           </button>
         </div>
       </div>

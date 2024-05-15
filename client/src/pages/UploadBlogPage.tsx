@@ -94,7 +94,7 @@ import FooterComponent from "../components/Footer";
 import { DialogBox } from "../components/dialogbox";
 
 export default function CreateBlogPage() {
-  const [user_id, setUserId] = useState<number>(3);
+  const [user_id, setUserId] = useState<number>(78);
   const [blog_title, setBlogTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);

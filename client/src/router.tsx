@@ -15,6 +15,7 @@ import { BookPage } from "./pages/BookPage.tsx";
 import BlogsPage from "./pages/BlogPage.tsx";
 import ReadBlogPage from "./pages/ReadBlogPage.tsx";
 import { SchedulePage } from "./pages/SchedulePage.tsx";
+import { ChatPage } from "./pages/ChatPage.tsx";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -34,6 +35,7 @@ export const router = createBrowserRouter(
         path="/book-appointment/:therapistId"
         element={<BookPage></BookPage>}
       ></Route>
+      <Route path="/chat/:therapistId" element={<ChatPage></ChatPage>}></Route>
       <Route path="blogs" element={<BlogsPage></BlogsPage>}></Route>
       <Route
         path="/schedule/:userId"

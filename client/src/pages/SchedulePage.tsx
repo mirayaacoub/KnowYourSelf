@@ -1,8 +1,10 @@
-import EventCalendar from "../components/EventCalendar"
+import EventCalendar from "../components/EventCalendar";
+import Navbar from "../components/NavBar";
 export function SchedulePage() {
-    return (
-        <>
-            <EventCalendar></EventCalendar>
-        </>
-    )
+  return (
+    <>
+      <Navbar />
+      <EventCalendar></EventCalendar>
+    </>
+  );
 }

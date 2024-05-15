@@ -42,13 +42,7 @@ const BlogPost: React.FC<BlogPostData> = ({
       />
       <div className="px-2">
         <div className="flex mt-3">
-          <img
-            className="w-10 h-10 rounded-full"
-            src={
-              "https://hips.hearstapps.com/hmg-prod/images/lionel-messi-celebrates-after-their-sides-third-goal-by-news-photo-1686170172.jpg?crop=0.66653xw:1xh;center,top&resize=640:*"
-            }
-            alt=""
-          />
+          <img className="w-10 h-10 rounded-full" src={"avatar.jpg"} alt="" />
           <div className="ml-3">
             <p>{Therapist.User.username}</p>
             <p className="text-sm text-stone-500">{formatDate(updated_at)}</p>
