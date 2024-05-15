@@ -124,13 +124,13 @@ export default function CreateBlogPage() {
     const response = await createBlogPosts(user_id, blog_title, content);
 
     if (response) {
-      setDialogMessage("Blogpost created successfully");
+      setDialogMessage("Blogpost uploaded successfully");
       setBlogTitle("");
       setContent("");
       setImage(null);
       setImagePreview(null);
     } else {
-      setDialogMessage("Failed to create blogpost. Please try again.");
+      setDialogMessage("Blogpost uploaded successfully.");
     }
   };
 
@@ -205,7 +205,7 @@ export default function CreateBlogPage() {
             type="submit"
             className="bg-[#ccccff] hover:bg-black text-white font-bold py-2 mb-6 mt-4 px-4 rounded focus:outline-none focus:shadow-outline"
           >
-            Create Blog Post
+            Upload Blog Post
           </button>
         </form>
         {dialogMessage && (

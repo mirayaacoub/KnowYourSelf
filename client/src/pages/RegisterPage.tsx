@@ -15,8 +15,8 @@ export function RegisterPage() {
   return (
     <div className="flex h-screen">
       <div
-        className="flex-1 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url('bg.png')` }}
+        className="flex-1  bg-[#ccccff] bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: `url('therapysesh.png')` }}
       ></div>
       <div className="flex-1 flex justify-center items-center">
         <form
