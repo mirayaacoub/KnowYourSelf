@@ -15,8 +15,10 @@ import { BookPage } from "./pages/BookPage.tsx";
 import BlogsPage from "./pages/BlogPage.tsx";
 import ReadBlogPage from "./pages/ReadBlogPage.tsx";
 import { SchedulePage } from "./pages/TherapistSchedulePage.tsx";
+import UserSchedulePage from "./pages/UserSchedulePage.tsx";
 import { ChatPage } from "./pages/ChatPage.tsx";
-import UserSchedulePage from './pages/UserSchedulePage.tsx';
+import Inbox from "./pages/InboxPage.tsx";
+import VideoCallPage from "./pages/VideoCallPage.tsx";
 
 export const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,9 +27,11 @@ export const router = createBrowserRouter(
       <Route path="/register" element={<RegisterPage />}></Route>
       <Route path="/login" element={<LoginPage />}></Route>
       <Route path="/about-us" element={<AboutUs />}></Route>
+      <Route path="/inbox" element={<Inbox />}></Route>
       <Route path="/profile-page" element={<ProfilePage />}></Route>
       <Route path="/create-blog" element={<CreateBlogPage />}></Route>
       <Route path="/read-blog/:title" element={<ReadBlogPage />}></Route>
+      <Route path="/video-call" element={<VideoCallPage />}></Route>
       <Route
         path="/find-therapist"
         element={<TherapistPage></TherapistPage>}

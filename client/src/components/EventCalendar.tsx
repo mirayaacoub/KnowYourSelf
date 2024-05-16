@@ -82,13 +82,13 @@ const EventCalendar = () => {
   const [openDatepickerModal, setOpenDatepickerModal] = useState(false);
   const [openTodoModal, setOpenTodoModal] = useState(false);
   const [currentEvent, setCurrentEvent] = useState<Event | IEventInfo | null>(
-    null
+    null,
   );
   const [eventInfoModal, setEventInfoModal] = useState(false);
   const [events, setEvents] = useState<IEventInfo[]>([]);
   const [todos, setTodos] = useState<ITodo[]>([]);
   const [eventFormData, setEventFormData] = useState<EventFormData>(
-    initialEventFormState
+    initialEventFormState,
   );
   const [datePickerEventFormData, setDatePickerEventFormData] =
     useState<DatePickerEventFormData>(initialDatePickerEventFormData);
@@ -194,7 +194,7 @@ const EventCalendar = () => {
 
   const onDeleteEvent = () => {
     setEvents(() =>
-      [...events].filter((e) => e._id !== (currentEvent as IEventInfo)._id!)
+      [...events].filter((e) => e._id !== (currentEvent as IEventInfo)._id!),
     );
     setEventInfoModal(false);
   };
@@ -204,7 +204,7 @@ const EventCalendar = () => {
 
   return (
     <Box
-      mt={2}
+      mt={0}
       mb={2}
       component="main"
       sx={{
@@ -306,7 +306,7 @@ const EventCalendar = () => {
                     <div>Patient: {event.patientName}</div>
                     <div>Email: {event.patientEmail}</div>
                   </div>
-                )
+                ),
               }}
               endAccessor="end"
               defaultView="week"
@@ -322,7 +322,6 @@ const EventCalendar = () => {
 };
 
 export default EventCalendar;
-
 
 // import React, { useState, useEffect } from "react";
 // import {
@@ -344,7 +343,6 @@ export default EventCalendar;
 // import addDays from "date-fns/addDays";
 // import enUS from "date-fns/locale/en-US";
 // import "react-big-calendar/lib/css/react-big-calendar.css";
-
 
 // import EventInfo from "./EventInfo";
 // import AddEventModal from "./AddEventModal";
@@ -421,7 +419,6 @@ export default EventCalendar;
 //   description: "",
 //   todoId: undefined,
 // };
-
 
 // const generateId = () => (Math.floor(Math.random() * 10000) + 1).toString();
 
@@ -700,7 +697,6 @@ export default EventCalendar;
 // import enUS from "date-fns/locale/en-US";
 // import "react-big-calendar/lib/css/react-big-calendar.css";
 
-
 // import EventInfo from "./EventInfo";
 // import AddEventModal from "./AddEventModal";
 // import EventInfoModal from "./EventInfoModal";
@@ -764,7 +760,6 @@ export default EventCalendar;
 //   start?: Date;
 //   end?: Date;
 // }
-
 
 // const initialEventFormState: EventFormData = {
 //   description: "",

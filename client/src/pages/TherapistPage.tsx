@@ -36,9 +36,7 @@ export function TherapistPage() {
 
   const filteredTherapists = searchTerm
     ? therapists.filter((therapist) =>
-        therapist.User.username
-          .toLowerCase()
-          .includes(searchTerm.toLowerCase()),
+        therapist.specialty.toLowerCase().includes(searchTerm.toLowerCase()),
       )
     : therapists;
 

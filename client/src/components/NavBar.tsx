@@ -1,18 +1,15 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import {
   PaperAirplaneIcon,
-  MoonIcon,
-  SunIcon,
-  Bars3Icon,
   UserIcon,
+  ChatBubbleLeftEllipsisIcon,
 } from "@heroicons/react/24/outline";
 
 function Navbar() {
   const [toggleMenu, setToggleMenu] = useState(true);
 
   return (
-    // <nav className="bg-white shadow-lg ">
     <nav className="flex justify-between items-center px-10 py-6 gap-20">
       {/* Primary menu and logo */}
       {/* logo */}
@@ -39,12 +36,20 @@ function Navbar() {
         Find a Therapist
       </Link>
       {sessionStorage.getItem("token") ? (
-        <Link
-          to="/profile-page"
-          className="flex gap-10 font-bold text-gray-700 items-center "
-        >
-          <UserIcon className="h-6 w-6 text-primary" />
-        </Link>
+        <div className="flex items-center gap-6">
+          <Link
+            to="/inbox"
+            className="flex gap-10 font-bold text-gray-700 items-center "
+          >
+            <ChatBubbleLeftEllipsisIcon className="h-6 w-6 text-primary" />
+          </Link>
+          <Link
+            to="/profile-page"
+            className="flex gap-10 font-bold text-gray-700 items-center "
+          >
+            <UserIcon className="h-6 w-6 text-primary" />
+          </Link>
+        </div>
       ) : (
         <Link
           to="/login"
@@ -54,7 +59,6 @@ function Navbar() {
         </Link>
       )}
     </nav>
-    // </nav>
   );
 }
 
