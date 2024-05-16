@@ -85,7 +85,9 @@ export function Sidebar() {
           <ListItemPrefix>
             <CalendarDaysIcon className="h-5 w-5" />
           </ListItemPrefix>
-          <Link to={`/schedule/${user.user_id}`}>Schedule</Link>
+          {user.role === "therapist" ? (<Link to={`/create-schedule/${user.user_id}`}>Schedule</Link>) 
+          : (<Link to={`/schedule/${user.user_id}`}>Schedule</Link>)}
+
         </ListItem>
         {user && user.role === "therapist" && (
           <ListItem className="my-2">

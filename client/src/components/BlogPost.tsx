@@ -20,6 +20,7 @@ const BlogPost: React.FC<BlogPostData> = ({
   blog_id,
   blog_title,
   content,
+  image,
   Therapist,
   updated_at,
 }) => {
@@ -32,11 +33,15 @@ const BlogPost: React.FC<BlogPostData> = ({
   };
 
   return (
+
     <div className="mb-6 cursor-pointer h-[28rem] rounded-md transition duration-300 ease-in-out hover:shadow-2xl hover:-translate-y-1">
       <img
         className="w-full h-52 object-cover rounded-md"
+        // src={
+        //   "https://www.health.com/thmb/hN-NGS0dEiJc1O1njUcBtH85ggM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/psychiatrist-GettyImages-1433472018-d9221f4efcd34a07bf5e42945696cea6.jpg"
+        // }
         src={
-          "https://www.health.com/thmb/hN-NGS0dEiJc1O1njUcBtH85ggM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/psychiatrist-GettyImages-1433472018-d9221f4efcd34a07bf5e42945696cea6.jpg"
+          image
         }
         alt=""
       />

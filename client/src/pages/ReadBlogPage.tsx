@@ -72,6 +72,7 @@ interface Comment {
   id: number;
   username: string;
   content: string;
+  image: string;
   timestamp: string;
 }
 
@@ -119,7 +120,8 @@ export default function ReadBlogPage() {
       <div className="container mx-auto p-4">
         <img
           className="w-full h-52 object-cover rounded-md"
-          src="https://www.health.com/thmb/hN-NGS0dEiJc1O1njUcBtH85ggM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/psychiatrist-GettyImages-1433472018-d9221f4efcd34a07bf5e42945696cea6.jpg"
+          src= {blogPost.image}
+          // src="https://www.health.com/thmb/hN-NGS0dEiJc1O1njUcBtH85ggM=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/psychiatrist-GettyImages-1433472018-d9221f4efcd34a07bf5e42945696cea6.jpg"
           alt="Blog Header"
         />
         <h1 className="text-5xl font-bold mb-4">{blogPost.blog_title}</h1>
@@ -127,7 +129,8 @@ export default function ReadBlogPage() {
         <div className="flex items-center mt-6">
           <img
             className="w-10 h-10 rounded-full"
-            src="https://hips.hearstapps.com/hmg-prod/images/lionel-messi-celebrates-after-their-sides-third-goal-by-news-photo-1686170172.jpg?crop=0.66653xw:1xh;center,top&resize=640:*"
+            src="/avatar.jpg"
+            // src="https://hips.hearstapps.com/hmg-prod/images/lionel-messi-celebrates-after-their-sides-third-goal-by-news-photo-1686170172.jpg?crop=0.66653xw:1xh;center,top&resize=640:*"
             alt="Therapist"
           />
           <div className="ml-4">

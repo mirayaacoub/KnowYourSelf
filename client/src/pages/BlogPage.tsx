@@ -38,6 +38,7 @@ const BlogsPage = () => {
                 blog_id={blogPost.blog_id}
                 blog_title={blogPost.blog_title}
                 content={blogPost.content}
+                image = {blogPost.image}
                 created_at={blogPost.created_at}
                 updated_at={blogPost.updated_at}
                 therapist_id={blogPost.therapist_id}

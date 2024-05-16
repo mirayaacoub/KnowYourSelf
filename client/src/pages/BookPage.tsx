@@ -216,10 +216,14 @@ export function BookPage() {
             });
         } else {
           // Handle case where user is not found in session storage
+          setDialogMessage('Error handling booking. Please try again.');
+          setShowDialog(true);
           console.error("User not found in session storage");
           // Perform any error handling or display error message to user
         }
       } else {
+        setDialogMessage('Booking unavailable. Please Choose another date.');
+        setShowDialog(true);
         console.log("No matching schedule found");
         // Handle the case where no matching schedule is found
       }

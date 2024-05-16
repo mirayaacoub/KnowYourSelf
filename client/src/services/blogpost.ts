@@ -5,6 +5,7 @@ export async function createBlogPosts(
   user_id: number,
   blog_title: string,
   content: string,
+  image: string
 ): Promise<BlogPostData | string | void> {
   try {
     const res = await Requests.post("/blogpost", {
@@ -12,6 +13,7 @@ export async function createBlogPosts(
         user_id,
         blog_title,
         content,
+        image,
       },
     });
 

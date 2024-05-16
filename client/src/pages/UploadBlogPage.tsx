@@ -94,7 +94,9 @@ import FooterComponent from "../components/Footer";
 import { DialogBox } from "../components/dialogbox";
 
 export default function CreateBlogPage() {
-  const [user_id, setUserId] = useState<number>(78);
+  const u = sessionStorage.getItem("user");
+  const uObject = JSON.parse(u);
+  const [user_id, setUserId] = useState<number>(uObject.user_id);
   const [blog_title, setBlogTitle] = useState<string>("");
   const [content, setContent] = useState<string>("");
   const [image, setImage] = useState<File | null>(null);
@@ -121,7 +123,8 @@ export default function CreateBlogPage() {
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const response = await createBlogPosts(user_id, blog_title, content);
+    console.log(user_id)
+    const response = await createBlogPosts(user_id, blog_title, content, imagePreview);
 
     if (response) {
       setDialogMessage("Blogpost uploaded successfully");

@@ -17,7 +17,7 @@ import {
 import DeleteIcon from "@mui/icons-material/Delete"
 
 import { HexColorPicker } from "react-colorful"
-import { ITodo, generateId } from "./EventCalendar"
+import generateId, { ITodo } from "./EventCalendar"
 
 interface IProps {
   open: boolean
