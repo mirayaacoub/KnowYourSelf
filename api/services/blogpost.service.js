@@ -5,7 +5,7 @@ const { getTherapist } = require("../services/therapist.service");
 const { where } = require("sequelize");
 
 const createBlogPost = async (data) => {
-  const { user_id, blog_title, content } = data;
+  const { user_id, blog_title, content, image } = data;
 
   try {
     console.log(user_id);
@@ -20,6 +20,7 @@ const createBlogPost = async (data) => {
         therapist_id: therapist.therapist_id,
         blog_title,
         content,
+        image
       });
 
       if (blogpost) {

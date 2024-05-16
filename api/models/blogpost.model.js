@@ -17,6 +17,10 @@ const BlogPost = sequelize.define('BlogPost', {
         type: DataTypes.TEXT,
         allowNull: false,
     },
+    image: {
+        type: DataTypes.TEXT,
+        allowNull: true
+    },
     therapist_id: {
         type: DataTypes.INTEGER,
         references: {
